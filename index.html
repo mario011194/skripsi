@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript Workout</title>
+        <script src="control.js"></script>
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <style>
+        body .header {
+        text-align:center;
+        }
+        .header input {
+        width:40px;
+        text-align:center;
+        
+        }
+        #target {
+        position:relative;
+        height: 120px;
+        width: 120px;
+        
+        }
+        #controlPanel {
+        background-color:white;
+        padding:5px;
+        position:absolute;
+        z-index:999;
+        top:10px;
+        right:10px;
+        width:100px;
+        border:3px solid grey;
+        }
+        #controlPanel div {
+        margin:5px 0;
+        text-align:center;
+        }
+        #controlPanel > button:first-of-type {
+        margin:auto;
+        display:block;
+        }
+        #controlPanel > button:last-of-type {
+        margin:auto;
+        display:block;
+        }
+        .floated_img
+        {
+        float: left;
+        }
+        
+        </style>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        
+    </head>
+    <body>
+        <div class="header">
+            <span>Value in px: </span>
+            <input value="10" id="value">
+            <div id="controlPanel">
+                <button type="button">Up</button>
+                <div>
+                    <button type="button">Left</button>
+                    <button type="button">Right</button>
+                </div>
+                <button type="button">Down</button>
+            </div>
+        </div>
+        <div id = "target">
+            <div id="draggable"  style="display:inline-block">
+                <img id="resizable" src = "duck.png" height="60px" width="60px">
+            </div>
+        </div>
+        
+        <div >
+            <img id="kaos_depan" src = "kaos.png" height="400px" width="500px">
+            <img id="kaos_belakang" src="kaos_belakang.png" height="400px" width="500px" >
+        </div>
+        <div clas="switch">
+            <button id="front">Front</button>
+            <button id="back">Back</button>
+        </div>
+        
+        <script>
+        $( function() {
+        $( "#draggable" ).draggable();
+        $( "#resizable" ).resizable();
+        });
+        $(document).ready(function(){
+        $("#kaos_belakang").hide();
+        $("#front").click(function(){
+        $("#kaos_depan").show();
+        $("#kaos_belakang").hide();
+        });
+        $("#back").click(function(){
+        $("#kaos_depan").hide();
+        $("#kaos_belakang").show();
+        });
+        
+        });
+        </script>
+    </body>
+</html>
